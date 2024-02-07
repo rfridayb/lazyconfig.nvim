@@ -38,12 +38,18 @@ local plugins = {
     {
         "preservim/vim-pencil"
     },
+    --    {
+    --        'rose-pine/neovim',
+    --        name = 'rose-pine',
+    --        config = function()
+    --            vim.cmd('colorscheme rose-pine')
+    --        end
+    --    },
     {
-        'rose-pine/neovim',
-        name = 'rose-pine',
-        config = function()
-            vim.cmd('colorscheme rose-pine')
-        end
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {}
     },
     'nvim-treesitter/nvim-treesitter', run= ':TSUpdate',
     'theprimeagen/harpoon',
@@ -67,7 +73,7 @@ local plugins = {
         }
     },
     {
-        "epwalsh.obsidian.nvim",
+        "epwalsh/obsidian.nvim",
         version = "*",
         lazy = true,
         ft = "markdown",
@@ -93,3 +99,23 @@ local plugins = {
     },
 }
 require("lazy").setup(plugins,{})
+require("tokyonight").setup({
+    style = "night",
+    transparent = true,
+    terminal_colors = false,
+    styles = {
+        comments = {italic=true},
+        keywords = {italic=true},
+        functions = {},
+        variables = {},
+        sidebars = "dark",
+        floats = "dark"
+    },
+    sidebars = {"qf","help"},
+    hide_inactive_statusline = false,
+    dim_inactive = false,
+    lualine_bold = false,
+    on_colors = function(colors) end,
+    on_highlights = function(highlights,colors)end,
+})
+vim.cmd("colorscheme tokyonight")
