@@ -72,31 +72,6 @@ local plugins = {
             'rafamadriz/friendly-snippets'
         }
     },
-    {
-        "epwalsh/obsidian.nvim",
-        version = "*",
-        lazy = true,
-        ft = "markdown",
-        dependencies = {
-            "nvim-lua/plenary.nvim"
-        },
-        opts = {
-            workspace = {
-                {
-                    name = "Frozen Worlds",
-                    path = "~/Documents/vaults/Frozen Worlds"
-                },
-                {
-                    name = "Personnal",
-                    path = "~/Documents/vaults/PKMS"
-                },
-                {
-                    name = "Worldbuilder Project",
-                    path = "~/Documents/vaults/Worldbuilder project"
-                }
-            }
-        }
-    },
 }
 require("lazy").setup(plugins,{})
 require("tokyonight").setup({
